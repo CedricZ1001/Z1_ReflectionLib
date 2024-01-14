@@ -1,13 +1,19 @@
 
 #ifndef message_name
-#error "Please define 'message_name'
+#   error Please define 'message_name'
 #endif
 
 #ifndef message_body
-#error "Please define 'message_body'
+#   error Please define 'message_body'
 #endif
 
+struct message_name {
 
+#undef field_int64
+#define field_int64(name, ...)  ::std::int64_t name = {__VA_ARGS__};
+    message_body
+    return os;
+};
 
 
 
@@ -28,6 +34,8 @@ struct foo
   double dbl = 0;
   ::std::string str = "hello";
 };
+
+
 
 inline
 std::ostream& operator<<(std::ostream& os, const foo& f){
